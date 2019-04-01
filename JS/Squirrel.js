@@ -39,16 +39,24 @@ class Squirrel {
       this.nbOfFramesBeforeMoving = 15
       switch (this.direction) {
         case "right":
+        if (this.col < 9){
           this.col++
+          }
           break
         case "left":
+        if(this.col > 0){
           this.col--
+          }
           break
         case "down":
+        if(this.row < 9){
           this.row++
+          } 
           break
         case "up":
+        if(this.row > 0){
           this.row--
+          }
           break
       }
     }
