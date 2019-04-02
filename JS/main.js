@@ -14,8 +14,8 @@ function drawEverything() {
   ctx.clearRect(0, 0, canvas.width, canvas.height)
   foodGrid.draw(ctx)
   squirrel.draw(ctx) 
+  // timer.draw(ctx)
 
-  // TODO: display the timer
 }
 
 function updateEverything() {
@@ -28,6 +28,7 @@ function updateEverything() {
       foodGrid.insertNewNut(squirrel)
     }
     foodGrid.content[squirrel.row][squirrel.col] = null
+    foodGrid.foodOnGrid--
   }
 } 
 

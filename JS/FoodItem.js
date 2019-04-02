@@ -8,6 +8,9 @@ class FoodItem {
   draw(ctx, col, row) {
     ctx.drawImage(this.img, col*100,row*100,70,70)
   }
+  timeToLeave(){
+    
+  }
 }
 
 // TODO: add this.ttl

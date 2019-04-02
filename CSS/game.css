@@ -7,8 +7,9 @@ body {
   background-color: black;
 }
 canvas {
-  background-color: green;
-  border: 1px solid black;
+  background-image: url(../Assets/IMG/florest.png);
+  background-repeat: no-repeat;
+  background-size: cover;
   max-height: calc(100vh - 120px);
   max-width: 95vw;
   display: block;
