@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+h1 {
+
+}
+.buttons {
+  display: flex;
+}
+.play {
+  display: block;
+  margin: auto;
+  padding: 10px;
+}
+.high-scores {
+  display: block;
+  margin: auto;
+  padding: 10px;
+}
+.instructions {
+  display: block;
+  margin: auto;
+}
