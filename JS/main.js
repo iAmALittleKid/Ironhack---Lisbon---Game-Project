@@ -10,7 +10,14 @@ let timer = new Timer()
 let foodGrid = new FoodGrid()
 let squirrel = new Squirrel(0,0,"right")
 
+let page = "home" // Possible values: "game", "game-over", "home", "high-scores", "instructions"
 
+
+function resetGame() {
+  timer = new Timer()
+  foodGrid = new FoodGrid()
+  squirrel = new Squirrel(0,0,"right")
+}
 
 function drawEverything() {
   timer.draw()
@@ -22,7 +29,10 @@ function drawEverything() {
 }
 
 function updateEverything() {
-  timer.update()
+  if (timer.currentTime > 0) {
+    timer.update()
+  } else {
+  }
   squirrel.update()
   foodGrid.update()
   let foodOnSquirrel = foodGrid.content[squirrel.row][squirrel.col]
@@ -37,8 +47,19 @@ function updateEverything() {
 } 
 
 function animation() {
-  updateEverything()
-  drawEverything()
+  if (page === "game") {
+    updateEverything()
+    drawEverything()
+  }
+  if (page === "home") {
+    drawHomePage()
+  }
+  if (page === "instructions") {
+    drawInstructionsPage()
+  }
+  if (timer.currentTime === 0) {
+    drawGameOverPage()
+  }
   window.requestAnimationFrame(animation)
 }
 
@@ -59,5 +80,70 @@ document.onkeydown = function(e) {
     case 40: 
       squirrel.moveDown()
       break
+    case 96: // 0
+    case 48: // 0
+      page = "home"
+      break
+    case 97: // 1
+    case 49: // 1
+      resetGame()
+      page = "game"
+      break
+    case 98: // 2
+    case 50: // 2
+      page = "instructions"
+      break
   }
+}
+
+function drawHomePage() {
+  ctx.save()
+  
+  // Background
+  ctx.fillStyle = "white"
+  ctx.fillRect(0,0,width,height)
+
+  // Text
+  ctx.fillStyle = "black"
+  ctx.font = "50px Arial"
+  ctx.textAlign = "center"
+  ctx.fillText("1 - PLAY", width / 2, 300)
+  ctx.fillText("2 - INSTRUCTIONS", width / 2, 700)
+  
+  ctx.restore()
+}
+
+function drawInstructionsPage() {
+  ctx.save()
+  
+  // Background
+  ctx.fillStyle = "white"
+  ctx.fillRect(0,0,width,height)
+
+  // Text
+  ctx.fillStyle = "black"
+  ctx.font = "50px Arial"
+  ctx.textAlign = "center"
+  ctx.fillText("To play, you have to ...", width / 2, 100)
+  ctx.fillText("0 - HOME", width / 2, 400)
+  ctx.fillText("1 - PLAY", width / 2, 600)
+  
+  ctx.restore()
+}
+
+function drawGameOverPage() {
+  ctx.save()
+  
+  // Background
+  ctx.fillStyle = "white"
+  ctx.fillRect(0,0,width,height)
+
+  // Text
+  ctx.fillStyle = "black"
+  ctx.font = "50px Arial"
+  ctx.textAlign = "center"
+  ctx.fillText("GAME OVER", width / 2, 300)
+  ctx.fillText("1 - PLAY", width / 2, 700)
+
+  ctx.restore()
 }
