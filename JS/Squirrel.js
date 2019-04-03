@@ -31,7 +31,8 @@ class Squirrel {
     this.direction = "left"
   }
   draw(ctx) {
-    ctx.drawImage(this.imgs[this.direction], squirrel.col*100, squirrel.row*100,90,90)
+    let size = 100
+    ctx.drawImage(this.imgs[this.direction], squirrel.col*100+(100-size)/2, squirrel.row*100+(100-size)/2,size,size)
   }
   update() {
     this.nbOfFramesBeforeMoving--

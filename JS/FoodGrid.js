@@ -7,9 +7,9 @@ class FoodGrid {
         this.content[row].push(null)
       }
     }
-    this.food = ["apple","blueberry","carrot","cheese","egg","mushroom","poison"]
+    this.food = ["apple","blueberry","cheese","egg","mushroom","poison"]
     this.content[GRID_SIZE-1][GRID_SIZE-1] = new FoodItem("nut")
-    this.nbOfFramesBeforeNewItem = 60*10 // After 10 seconds
+    this.nbOfFramesBeforeNewItem = 10*60 // After 10 seconds
     this.foodOnGrid = 0
   }
   
@@ -32,8 +32,9 @@ class FoodGrid {
     // Draw all food items
     for (let row = 0; row < GRID_SIZE; row++) {
       for (let col = 0; col < GRID_SIZE; col++) {
-        if(this.content[row][col]) {
-          this.content[row][col].draw(ctx, col, row)
+        let foodItem = this.content[row][col]
+        if(foodItem) {
+          foodItem.draw(ctx, col, row)
         }
       }
     }
@@ -42,17 +43,48 @@ class FoodGrid {
   insertNewNut() {
     let randomRow = Math.floor(Math.random()*GRID_SIZE)
     let randomCol = Math.floor(Math.random()*GRID_SIZE)
-    this.content[randomRow][randomCol] = new FoodItem("nut") 
+    // If there is already something on the grid
+    if (this.content[randomRow][randomCol]) {
+      this.insertNewNut()
+    }
+    else {
+      this.content[randomRow][randomCol] = new FoodItem("nut") 
+    }
   }
-  
-  update() {
+
+  insertNewPowerUp() {
     let randomNumber = Math.floor(Math.random()*this.food.length)
     this.nbOfFramesBeforeNewItem--
     if (this.nbOfFramesBeforeNewItem === 0) {
-      this.nbOfFramesBeforeNewItem = 60*10
+      this.nbOfFramesBeforeNewItem = 10*60
       let randomRow = Math.floor(Math.random()*GRID_SIZE)
       let randomCol = Math.floor(Math.random()*GRID_SIZE)
+      if (this.content[randomRow][randomCol]) {
+        this.insertNewPowerUp()
+      }
+      else {
         this.content[randomRow][randomCol] = new FoodItem(this.food[randomNumber])
+      }
+    }
+  }
+  
+  update() {
+    this.insertNewPowerUp()
+
+    // Update everything on the content
+    for (let row = 0; row < GRID_SIZE; row++) {
+      for (let col = 0; col < GRID_SIZE; col++) {
+        let foodItem = this.content[row][col]
+        if(foodItem) {
+          foodItem.update()
+          if (foodItem.ttl <= 0) {
+            this.content[row][col] = null
+            if (foodItem.type === "nut") {
+              this.insertNewNut()
+            }
+          }
+        }
+      }
     }
   }
 }
