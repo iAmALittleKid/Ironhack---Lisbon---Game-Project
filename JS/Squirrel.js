@@ -16,7 +16,8 @@ class Squirrel {
     this.imgs.down.src = '../Assets/IMG/Squirrel.png'
     this.imgs.up.src = '../Assets/IMG/Squirrel.png'
 
-    this.nbOfFramesBeforeMoving = 15
+    this.newNbOfFramesBeforeMoving = INITIAL_NB_OF_FRAMES_BEFORE_MOVING
+    this.nbOfFramesBeforeMoving = INITIAL_NB_OF_FRAMES_BEFORE_MOVING
   }
   moveUp(){
     this.direction = "up"
@@ -37,27 +38,41 @@ class Squirrel {
   update() {
     this.nbOfFramesBeforeMoving--
     if (this.nbOfFramesBeforeMoving === 0) {
-      this.nbOfFramesBeforeMoving = 15
+      if (this.newNbOfFramesBeforeMoving < INITIAL_NB_OF_FRAMES_BEFORE_MOVING) {
+        this.newNbOfFramesBeforeMoving++
+      }
+      if (this.newNbOfFramesBeforeMoving > INITIAL_NB_OF_FRAMES_BEFORE_MOVING) {
+        this.newNbOfFramesBeforeMoving--
+      }
+      this.nbOfFramesBeforeMoving = this.newNbOfFramesBeforeMoving
       switch (this.direction) {
         case "right":
-        if (this.col < 9){
-          this.col++
+          if (this.col === 9) {
+            this.col = 0
+          } else {
+            this.col++
           }
           break
         case "left":
-        if(this.col > 0){
+          if (this.col === 0) {
+            this.col = 9
+          } else {
           this.col--
           }
           break
         case "down":
-        if(this.row < 9){
+          if (this.row === 9){
+            this.row = 0
+          } else {
           this.row++
-          } 
+          }
           break
         case "up":
-        if(this.row > 0){
-          this.row--
-          }
+        if(this.row === 0){
+          this.row = 9
+        } else {
+        this.row--
+        }
           break
       }
     }

@@ -41,16 +41,16 @@ class Timer {
         this.timeFreezeTtl = 5*60
         break;
       case "egg":
-        this.
+          squirrel.newNbOfFramesBeforeMoving = Math.floor(INITIAL_NB_OF_FRAMES_BEFORE_MOVING/4)
         break;
       case "apple":
-        this.currentTime -= 10*60
+        this.currentTime -= 5*60
         break;
       case "poison":
-        this.
+        this.currentTime = 0
         break;
       case "mushroom":
-        this.
+          squirrel.newNbOfFramesBeforeMoving = INITIAL_NB_OF_FRAMES_BEFORE_MOVING*4
         break;
     }
   }

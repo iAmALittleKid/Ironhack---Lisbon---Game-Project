@@ -3,6 +3,8 @@ var ctx = canvas.getContext('2d')
 var width = canvas.width
 var height = canvas.height
 const GRID_SIZE = 10
+const INITIAL_NB_OF_FRAMES_BEFORE_MOVING = 15
+const INITIAL_NB_OF_FRAMES_BEFORE_NEW_ITEM = 10*60
 
 let timer = new Timer()
 let foodGrid = new FoodGrid()

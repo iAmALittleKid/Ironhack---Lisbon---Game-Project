@@ -1,5 +1,4 @@
 class FoodItem {
-  // Possible values for type: "nut", "egg", "blueberry", "carrot", "apple"
   constructor(type) {
     this.type = type
     this.img = new Image()

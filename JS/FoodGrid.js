@@ -9,7 +9,7 @@ class FoodGrid {
     }
     this.food = ["apple","blueberry","cheese","egg","mushroom","poison"]
     this.content[GRID_SIZE-1][GRID_SIZE-1] = new FoodItem("nut")
-    this.nbOfFramesBeforeNewItem = 10*60 // After 10 seconds
+    this.nbOfFramesBeforeNewItem = INITIAL_NB_OF_FRAMES_BEFORE_NEW_ITEM // After 10 seconds
     this.foodOnGrid = 0
   }
   
@@ -20,13 +20,11 @@ class FoodGrid {
       ctx.beginPath()
       ctx.moveTo(x,0)
       ctx.lineTo(x, height)
-      ctx.stroke()
     }
     for (let y = 0; y < width; y+=100){
       ctx.beginPath()
       ctx.moveTo(0,y)
       ctx.lineTo(width, y)
-      ctx.stroke()
     }
     
     // Draw all food items
@@ -56,7 +54,7 @@ class FoodGrid {
     let randomNumber = Math.floor(Math.random()*this.food.length)
     this.nbOfFramesBeforeNewItem--
     if (this.nbOfFramesBeforeNewItem === 0) {
-      this.nbOfFramesBeforeNewItem = 10*60
+      this.nbOfFramesBeforeNewItem = INITIAL_NB_OF_FRAMES_BEFORE_NEW_ITEM
       let randomRow = Math.floor(Math.random()*GRID_SIZE)
       let randomCol = Math.floor(Math.random()*GRID_SIZE)
       if (this.content[randomRow][randomCol]) {
