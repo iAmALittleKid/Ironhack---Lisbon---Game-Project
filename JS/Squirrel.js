@@ -11,10 +11,10 @@ class Squirrel {
       down: new Image(),
       up: new Image(),
     }
-    this.imgs.right.src = '../Assets/IMG/Squirrel.png'
-    this.imgs.left.src = '../Assets/IMG/Squirrel.png'
-    this.imgs.down.src = '../Assets/IMG/Squirrel.png'
-    this.imgs.up.src = '../Assets/IMG/Squirrel.png'
+    this.imgs.right.src = './Assets/IMG/Squirrel.png'
+    this.imgs.left.src = './Assets/IMG/Squirrel.png'
+    this.imgs.down.src = './Assets/IMG/Squirrel.png'
+    this.imgs.up.src = './Assets/IMG/Squirrel.png'
 
     this.newNbOfFramesBeforeMoving = INITIAL_NB_OF_FRAMES_BEFORE_MOVING
     this.nbOfFramesBeforeMoving = INITIAL_NB_OF_FRAMES_BEFORE_MOVING

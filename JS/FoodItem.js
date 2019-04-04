@@ -2,7 +2,7 @@ class FoodItem {
   constructor(type) {
     this.type = type
     this.img = new Image()
-    this.img.src = `../Assets/IMG/${type}.png`
+    this.img.src = `./Assets/IMG/${type}.png`
     switch (type) {
       case "nut":
         this.ttl = 5*60

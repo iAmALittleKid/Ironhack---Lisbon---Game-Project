@@ -5,6 +5,9 @@
 }
 body {
   background-color: black;
+  background-image: url(./Assets/IMG/florest.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .game {
   display: flex;
@@ -36,10 +39,10 @@ button {
 }
 h2 {
   color: white;
-  font-size: 12px;
+  font-size: 20px;
 }
 canvas {
-  background-image: url(../Assets/IMG/florest.png);
+  background-image: url(./Assets/IMG/grass.png);
   background-repeat: no-repeat;
   background-size: cover;
   max-height: calc(100vh - 120px);
@@ -47,10 +50,7 @@ canvas {
   display: block;
   margin: auto;
 }
-h1 {
-  color: white;
-  text-align: center;
-  height: 50px;
-  line-height: 50px;
-  margin: 15px;
+img {
+  display: block;
+  margin: auto
 }

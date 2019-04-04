@@ -4,15 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="./CSS/index.css">
-  <title>Squirrel Run</title>
+
+  <link rel="stylesheet" href="./style.css">
+  <title>Squirrel 🐿 Run</title>
 </head>
 <body>
-  <h1>Squirrel Run</h1>
-  <div class="buttons">
-    <button class="high-scores">HIGH SCORES</button>
-    <button class="play">PLAY</button>
+  <img src="./Assets/IMG/squirrel logo.png" width="250" height="80">
+  <div class="game-2">
+  <div class="game">
+    <canvas width="1000" height="1000"></canvas>
+    <div class="info">
+      <h2>Timer: <span id="timer"></span></h2>
+      <h2>Score: <span id="score"></span></h2>
+    </div>
   </div>
-  <button class="instructions">INSTRUCTIONS</button>
+  </div>
+ 
+  <script src="./JS/FoodItem.js"></script>
+  <script src="./JS/FoodGrid.js"></script>
+  <script src="./JS/Squirrel.js"></script>
+  <script src="./JS/timer.js"></script>
+  <script src="./JS/main.js"></script>
 </body>
 </html>
