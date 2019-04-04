@@ -20,11 +20,13 @@ class FoodGrid {
       ctx.beginPath()
       ctx.moveTo(x,0)
       ctx.lineTo(x, height)
+      // ctx.stroke()
     }
     for (let y = 0; y < width; y+=100){
       ctx.beginPath()
       ctx.moveTo(0,y)
       ctx.lineTo(width, y)
+      // ctx.stroke()
     }
     
     // Draw all food items

@@ -5,19 +5,13 @@ class Squirrel {
     this.row = row
     this.direction = direction
 
-    this.imgs = {
-      right: new Image(),
-      left: new Image(),
-      down: new Image(),
-      up: new Image(),
-    }
-    this.imgs.right.src = './Assets/IMG/Squirrel.png'
-    this.imgs.left.src = './Assets/IMG/Squirrel.png'
-    this.imgs.down.src = './Assets/IMG/Squirrel.png'
-    this.imgs.up.src = './Assets/IMG/Squirrel.png'
+    this.img = new Image()
+    this.img.src = "./Assets/IMG/Squirrel-Sprites.png"
 
     this.newNbOfFramesBeforeMoving = INITIAL_NB_OF_FRAMES_BEFORE_MOVING
     this.nbOfFramesBeforeMoving = INITIAL_NB_OF_FRAMES_BEFORE_MOVING
+
+    this.frame = 0
   }
   moveUp(){
     this.direction = "up"
@@ -33,11 +27,27 @@ class Squirrel {
   }
   draw(ctx) {
     let size = 100
-    ctx.drawImage(this.imgs[this.direction], squirrel.col*100+(100-size)/2, squirrel.row*100+(100-size)/2,size,size)
+    let spriteSize = 32
+    let sx, sy
+    sx = (this.frame * spriteSize) % 96
+    switch(this.direction) {
+      case "right": sy = 4*spriteSize; break;
+      case "left": sy = 5*spriteSize; break;
+      case "down": sy = 6*spriteSize; break;
+      case "up": sy = 7*spriteSize; break;
+    }
+    ctx.drawImage(
+      this.img, 
+      sx, sy,
+      spriteSize, spriteSize,
+      squirrel.col*100+(100-size)/2, squirrel.row*100+(100-size)/2,
+      size,size,
+    )
   }
   update() {
     this.nbOfFramesBeforeMoving--
     if (this.nbOfFramesBeforeMoving === 0) {
+      this.frame++
       if (this.newNbOfFramesBeforeMoving < INITIAL_NB_OF_FRAMES_BEFORE_MOVING) {
         this.newNbOfFramesBeforeMoving++
       }

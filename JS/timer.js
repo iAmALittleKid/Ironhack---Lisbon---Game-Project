@@ -44,7 +44,7 @@ class Timer {
         this.timeFreezeTtl = 5*60
         break;
       case "egg":
-          squirrel.newNbOfFramesBeforeMoving = Math.floor(INITIAL_NB_OF_FRAMES_BEFORE_MOVING/8)
+          squirrel.newNbOfFramesBeforeMoving = Math.floor(INITIAL_NB_OF_FRAMES_BEFORE_MOVING/6)
         break;
       case "apple":
         this.currentTime -= 5*60
