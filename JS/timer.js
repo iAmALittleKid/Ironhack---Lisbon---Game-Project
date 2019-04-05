@@ -1,6 +1,6 @@
 class Timer {
   constructor() {
-    this.currentTime = 15*60
+    this.currentTime = 10*60
     this.timeFreezeTtl = 0
     this.scoreFrame = 0
   }

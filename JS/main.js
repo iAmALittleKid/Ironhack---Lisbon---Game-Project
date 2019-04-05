@@ -58,6 +58,7 @@ function animation() {
   }
   if (timer.currentTime === 0) {
     drawGameOverPage()
+    return
   }
   window.requestAnimationFrame(animation)
 }
@@ -99,12 +100,12 @@ function drawHomePage() {
   ctx.save()
   
   // Background
-  ctx.fillStyle = "white"
-  ctx.fillRect(0,0,width,height)
+  ctx.fillStyle = "green"
+  ctx.fillRect(200,200,600,600)
 
   // Text
   ctx.fillStyle = "black"
-  ctx.font = "50px sans-serif"
+  ctx.font = "40px sans-serif"
   ctx.textAlign = "center"
   ctx.fillText("1 - PLAY", width / 2, 300)
   ctx.fillText("2 - INSTRUCTIONS", width / 2, 700)
@@ -133,16 +134,16 @@ function drawInstructionsPage() {
   ctx.save()
   
   // Background
-  ctx.fillStyle = "white"
+  ctx.fillStyle = "green"
   ctx.fillRect(0,0,width,height)
 
   // Text
   ctx.fillStyle = "black"
-  ctx.font = "50px sans-serif"
+  ctx.font = "60px sans-serif"
   ctx.textAlign = "center"
-  ctx.fillText("Last as Long as you can", width / 2, 50)
-  ctx.font = "40px sans-serif"
-  ctx.fillStyle = "green"
+  ctx.fillText("Last as Long as you can", width / 2, 80)
+  ctx.font = "30px sans-serif"
+  ctx.fillStyle = "yellow"
   ctx.textAlign = "left"
   ctx.drawImage(imageNut, 50, 160, 50, 50)
   ctx.fillText(" - Gain 2 Seconds", 100, 200)
@@ -158,7 +159,7 @@ function drawInstructionsPage() {
   ctx.fillText(" - Squiller Slower for 5 Seconds", 100, 700)
   ctx.drawImage(imagePoison, 50, 760, 50, 50)
   ctx.fillText(" - Squirrel Dies", 100, 800)
-  ctx.font = "50px sans-serif"
+  ctx.font = "40px sans-serif"
   ctx.fillStyle = "black"
   ctx.textAlign = "center"
   ctx.fillText("1 - PLAY ", 200, 900)
@@ -171,16 +172,22 @@ function drawGameOverPage() {
   ctx.save()
   
   // Background
-  ctx.fillStyle = "white"
-  ctx.fillRect(0,0,width,height)
-
+  ctx.fillStyle = "green"
+  ctx.fillRect(200,200,600,600)
+1
   // Text
+  ctx.fillStyle = "black"
+  ctx.font = "80px sans-serif"
+  ctx.textAlign = "center"
+  ctx.fillText("GAME OVER", width / 2, 300)
   ctx.fillStyle = "black"
   ctx.font = "50px sans-serif"
   ctx.textAlign = "center"
-  ctx.fillText("GAME OVER", width / 2, 300)
-  ctx.fillText("1 - PLAY", width / 2, 500)
-  ctx.fillText("2 - INSTRUCTIONS", width / 2, 700)
+  ctx.fillText("Score :", width / 2, 500)
+  ctx.fillStyle = "black"
+  ctx.font = "40px sans-serif"
+  ctx.textAlign = "center"
+  ctx.fillText("1 - PLAY", width / 2, 750)
 
   ctx.restore()
 }
