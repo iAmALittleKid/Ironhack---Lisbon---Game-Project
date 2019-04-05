@@ -100,7 +100,7 @@ function drawHomePage() {
   ctx.save()
   
   // Background
-  ctx.fillStyle = "green"
+  ctx.fillStyle = "rgba(123, 239, 178, 0.4)"
   ctx.fillRect(200,200,600,600)
 
   // Text
@@ -134,7 +134,7 @@ function drawInstructionsPage() {
   ctx.save()
   
   // Background
-  ctx.fillStyle = "green"
+  ctx.fillStyle = "rgba(123, 239, 178, 0.4)"
   ctx.fillRect(0,0,width,height)
 
   // Text
@@ -172,7 +172,7 @@ function drawGameOverPage() {
   ctx.save()
   
   // Background
-  ctx.fillStyle = "green"
+  ctx.fillStyle = "rgba(123, 239, 178, 0.4)"
   ctx.fillRect(200,200,600,600)
 1
   // Text
@@ -183,7 +183,8 @@ function drawGameOverPage() {
   ctx.fillStyle = "black"
   ctx.font = "50px sans-serif"
   ctx.textAlign = "center"
-  ctx.fillText("Score :", width / 2, 500)
+  ctx.fillText("Score: " + timer.scoreFrame / 60
+  , width / 2, 500)
   ctx.fillStyle = "black"
   ctx.font = "40px sans-serif"
   ctx.textAlign = "center"
